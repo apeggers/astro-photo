@@ -1,30 +1,14 @@
 {
-  "name": "photography",
+  "name": "astro-photo",
   "version": "4.0.0",
   "description": "A jekyll website for photographer cum developer",
-  "main": "npmfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rampatra/photography.git"
+    "url": "git+https://github.com/apeggers/astro-photo.git"
   },
-  "keywords": [
-    "photography",
-    "jekyll",
-    "website",
-    "template",
-    "website template",
-    "portfolio",
-    "portfolio website"
-  ],
-  "author": "Ram Patra",
+  "author": "Alexander Eggers",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/rampatra/photography/issues"
-  },
-  "homepage": "https://github.com/rampatra/photography#readme",
+  "homepage": "https://github.com/apeggers/astro-photo#readme",
   "devDependencies": {
     "del": "^4.1.1",
     "gulp": "^4.0.2",

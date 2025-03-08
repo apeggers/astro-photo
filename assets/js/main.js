@@ -216,7 +216,7 @@
 
         // Main.
         var $main = $('#main'),
-            exifDatas = {};
+            metadataMap = {};
 
         // Thumbs.
         $main.children('.thumb').each(function () {
@@ -253,11 +253,9 @@
                         $image.trigger('click');
                     });
 
-            // EXIF data
+            // metadata
             $image_img[0].addEventListener("load", function() {
-                EXIF.getData($image_img[0], function () {
-                    exifDatas[$image_img.data('name')] = getExifDataMarkup(this);
-                });
+                metadataMap[$image_img.data('name')] = getMetadataMarkup($image_img.data('name'));
             });
 
         });
@@ -267,12 +265,9 @@
             baseZIndex: 20000,
             caption: function ($a) {
                 var $image_img = $a.children('img');
-                var data = exifDatas[$image_img.data('name')];
+                var data = metadataMap[$image_img.data('name')];
                 if (data === undefined) {
-                    // EXIF data					
-                    EXIF.getData($image_img[0], function () {
-                        data = exifDatas[$image_img.data('name')] = getExifDataMarkup(this);
-                    });
+                    data = metadataMap[$image_img.data('name')] = getMetadataMarkup($image_img.data('name'));
                 }
                 return data !== undefined ? '<p>' + data + '</p>' : ' ';
             },
@@ -308,14 +303,14 @@
                 $main[0]._poptrox.windowMargin = 0;
             });
 
-        function getExifDataMarkup(img) {
-            var exif = $('#main').data('exif');
+        function getMetadataMarkup(img_name) {
+            var meta = $('#main').data('img_meta');
             var template = '';
-            for (var current in exif) {
-                var current_data = exif[current];
-                var exif_data = EXIF.getTag(img, current_data['tag']);
-                if (typeof exif_data !== "undefined") {
-                    template += '<i class="fa fa-' + current_data['icon'] + '" aria-hidden="true"></i> ' + exif_data + '&nbsp;&nbsp;';
+            for (var current in meta) {
+                var current_data = meta[current];
+                var metadata = current_data['tag'];
+                if (typeof matadata !== "undefined") {
+                    template += '<i class="fa fa-' + current_data['icon'] + '" aria-hidden="true"></i> ' + metadata + '&nbsp;&nbsp;';
                 }
             }
             return template;
