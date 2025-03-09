@@ -304,12 +304,12 @@
             });
 
         function getMetadataMarkup(img_name) {
-            var meta = $('#main').data('img_meta');
+            var meta = $('#main').data('imgmeta');
             var template = '';
             for (var current in meta) {
                 var current_data = meta[current];
                 var metadata = current_data['tag'];
-                if (typeof matadata !== "undefined") {
+                if (typeof metadata !== "undefined") {
                     template += '<i class="fa fa-' + current_data['icon'] + '" aria-hidden="true"></i> ' + metadata + '&nbsp;&nbsp;';
                 }
             }

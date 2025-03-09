@@ -16,7 +16,7 @@ layout: default
     </header>
 
     <!-- Main -->
-    <div id="main" data-img-meta='{{ site.img_meta }}'>
+    <div id="main" data-imgmeta='{{ site.img_meta }}'>
         {% for image in site.static_files %}
         {% if image.path contains 'fulls' %}
         <article class="thumb">
